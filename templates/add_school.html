@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+  {% block title %}Add School{% endblock title %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  {% block styles %}
+  <style>
+    body {
+      background-image: url('{% static "images/img.jpg" %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .card-registration {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .card-registration form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-registration form input,
+    .card-registration form select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .card-registration form button {
+      width: 100px;
+      margin-top: 10px;
+    }
+  </style>
+  {% endblock %}
+
+</head>
+
+{% block content %}
+<body class='gradient-custom'>
+  <h2>Welcome to Arvid's convent school management system!</h2>
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add A School</h3>
+            <form method="POST" action="{% url 'add_school' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+{% endblock content %}
+

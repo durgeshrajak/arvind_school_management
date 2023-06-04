@@ -1,0 +1,37 @@
+<!-- school_list.html -->
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}School List{% endblock %}
+{% block content %}
+    <h2>School List</h2>
+    <table style="border-radius: 10px; border: 1px solid darkgreen; box-shadow: 0 0 5px 0 darkgreen;">
+        <thead>
+            <tr>
+                <th style="background-color: #f9f9f9; width: 10%;">Name</th>
+                <th style="background-color: #f9f9f9; width: 15%;">Payable Amount</th>
+                <th style="background-color: #f9f9f9; width: 15%;">Paid Amount</th>
+                <th style="background-color: #f9f9f9; width: 15%;">Remaining Amount</th>
+                <th style="background-color: #f9f9f9; width: 20%;">Date</th>
+                <th style="background-color: #f9f9f9; width: 15%;">Actions</th>
+                <th style="background-color: #f9f9f9; width: 15%;">Actions1</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for school in schools %}
+            <tr>
+                <td>{{ school.name }}</td>
+                <td>{{ school.payable_amount }}</td>
+                <td>{{ school.paid_amount }}</td>
+                <td>{{ school.remaining_amount }}</td>
+                <td>{{ school.date }}</td>
+                <td>
+                    <a href="{% url 'edit_school' school.pk %}">Edit</a>
+                </td>
+                <td>    
+                    <a href="{% url 'delete_school' school.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

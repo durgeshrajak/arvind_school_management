@@ -1,0 +1,13 @@
+<!-- edit_school.html -->
+{% extends 'base.html' %}
+
+{% block title %}Edit School{% endblock %}
+
+{% block content %}
+<h2>Edit School</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+{% endblock %}

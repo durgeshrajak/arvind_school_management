@@ -1,0 +1,13 @@
+<!-- delete_school.html -->
+{% extends 'base.html' %}
+
+{% block title %}Delete School{% endblock %}
+
+{% block content %}
+<h2>Delete School</h2>
+<p>Are you sure you want to delete {{ school.name }}?</p>
+<form method="POST">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+</form>
+{% endblock %}
