@@ -13,8 +13,10 @@
 
 {% block content %}
 <body>
-  <h1>Home Page</h1>
-  
+  <h1>Welcome to Arvid's convent school management system!</h1>
+  <a href="{% url 'school_list' %}" class="btn btn-primary">All School</a>
+  <a href="{% url 'add_school' %}" class="btn btn-primary">Add school</a>
+  {% comment %} <a href="{% url 'edit_school' %}" class="btn btn-primary">Edit School Details</a> {% endcomment %}
   <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
 </body>  
 {% endblock %}
